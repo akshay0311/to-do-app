@@ -18,15 +18,16 @@ function TodoItem ({todo,markComplete,delTodo}){
             float : 'right',
             cursor : 'pointer',
             border : 'none',
-            borderRadius : "50%"
+            borderRadius : "50%",
+            fontSize: "1.2em"
         }    
     }
         return (
             <div style={getStyle()}>
-                <p>
-                    <input type="checkbox" onChange={()=>markComplete(todo.id)}/>{'  '}
+                <p style={{fontSize:"2em"}}>
+                    <input  type="checkbox" onChange={()=>markComplete(todo._id)}/>{'  '}
                     {todo.title}
-                    <button style={buttonStyle()} onClick={()=>delTodo(todo.id)}>x</button>
+                    <button style={buttonStyle()} onClick={()=>delTodo(todo._id)}>x</button>
                 </p>
             </div>
         )

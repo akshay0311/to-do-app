@@ -3,17 +3,14 @@ import Button from "@material-ui/core/Button";
 export function AddTodo({addTodo}) {
     // useState of the form
     const [title,setTitle] = useState('');
-    const [tit,setTit] = useState('');
     // arrow function on submitting form
     var onSubmit = (e)=>{
-        setTit("yeahhhhhhh")
         e.preventDefault();
         addTodo(title);
-        setTitle('')
+        setTitle(' ');
     }
     return (
         <div>
-            {tit}
             <form onSubmit={onSubmit} style = {{display:'flex'}}>
                 <input 
                 type="text" 

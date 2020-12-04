@@ -7,23 +7,24 @@ import AddTodo from './components/addTodo';
 class App extends Component {
   // state object
   state = {
-    todos : []
+    todos : [],
+    date : new Date(),
   }
 
   // LifeCycle Method which runs after render
   componentDidMount(){
-    axios.get("http://localhost:3001/")
-    .then(res=>{
-      this.setState({todos:res.data});
-    })
-    .catch(err=>console.log(err))
+      axios.get("https://glimmer-near-practice.glitch.me/")
+      .then(res=>{
+        this.setState({todos:res.data});
+      })
+      .catch(err=>console.log(err))
   }
 
 
   // App method
   markComplete = (id)=>{
     this.setState({todos: this.state.todos.map((todo)=>{
-       if (todo.id === id){
+       if (todo._id === id){
             todo.completed = !todo.completed;
        }
        return todo;
@@ -33,14 +34,14 @@ class App extends Component {
   // delete method to remove from todo list
   delTodo = (id)=>{
     // Requesting delete
-    axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-    .then((res)=>this.setState({todos: [...this.state.todos.filter(todo=>todo.id !== id)]}))
+    axios.delete(`https://glimmer-near-practice.glitch.me/${id}`)
+    .then((res)=>this.setState({todos: [...this.state.todos.filter(todo=>todo._id !== id)]}))
   }
 
   // add method to add to todo list
   addTodo = (title)=>{
       // Requesting post 
-      axios.post("http://localhost:3001/",{
+      axios.post("https://glimmer-near-practice.glitch.me/",{
         title,
         completed:false
       })
