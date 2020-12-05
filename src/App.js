@@ -43,7 +43,7 @@ class App extends Component {
       // Requesting post 
       axios.post("https://glimmer-near-practice.glitch.me/",{
         title,
-        completed:false
+        completed
       })
       .then((res)=>{console.log(res.data);this.setState({todos:[...this.state.todos,res.data]})})
   }
