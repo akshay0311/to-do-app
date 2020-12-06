@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import Button from "@material-ui/core/Button";
+import Button from "react-bootstrap/Button";
+import "../App.css";
+
 export function AddTodo({addTodo}) {
     // useState of the form
     const [title,setTitle] = useState('');
@@ -11,18 +13,15 @@ export function AddTodo({addTodo}) {
     }
     return (
         <div>
-            <form onSubmit={onSubmit} style = {{display:'flex'}}>
+            <form onSubmit={onSubmit} style = {{display:'flex',paddingLeft:"10px"}}>
                 <input 
                 type="text" 
                 name="title" 
-                style={{flex:'10',padding: '15px',border:"2px solid black",fontSize:"1.2em"}} 
+                style={{flex:'10',padding: '10px',border:"2px solid black",fontSize:"1.2em"}} 
                 placeholder="Add to do" 
                 value={title} 
                 onChange={(e)=>setTitle(e.target.value)}/>
-
-                <Button type="submit" variant="contained" color="primary" style={{flex:"1",fontSize:"20px"}}>
-                        Submit
-                </Button>
+                <Button className="todo_button" style={{backgroundColor:"#54aed1",fontSize:"20px"}}>Submit</Button>
             </form>
         </div>
     )

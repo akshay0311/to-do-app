@@ -6,9 +6,9 @@ function Todos(props) {
         // mapping through props passed from App component 
         // Passing down each item to TodoItem component
 
-        props.todos.map((todo)=>(
-            <TodoItem id= {todo._id} todo = {todo} mark ={props.mark} delTodo = {props.delTodo}/>
-        ))
+        props.todos.map((todo,index)=>{
+            return <TodoItem index={index} id= {todo._id} todo = {todo} mark ={props.mark} delTodo = {props.delTodo}/>
+        })
                 
     )
 }

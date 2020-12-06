@@ -1,0 +1,18 @@
+.todo_button {
+    background-color:#54aed1;
+    margin-left:5px;
+    width:150px;
+}
+.todo_items {
+    font-size: 1.8em;
+}
+
+@media only screen and (max-width:700px) {
+    .todo_button {
+        width: 100px;
+        margin-right: 25px;
+    }
+    .todo_items{
+        font-size: 1.2em;
+    }
+}

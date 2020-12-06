@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import "../App.css";
 
-function TodoItem ({todo,mark,delTodo}){
+function TodoItem ({todo,mark,delTodo,index}){
     // arrow function for css styling
     var getStyle = ()=>{
         return {
-        background: '#f4f4f4',
+        background: index%2 === 0 ? '#f4f4f4':"white",
         padding : "10px",
         borderBottom : "1px #ccc dotted",
         textDecoration : todo.completed ? 'line-through': 'none'
@@ -24,7 +25,7 @@ function TodoItem ({todo,mark,delTodo}){
     }
         return (
             <div style={getStyle()}>
-                <p style={{fontSize:"2em"}}>
+                <p className="todo_items">
                     <input  type="checkbox"  onChange={()=>mark(todo._id,!todo.completed)}/>{'  '}
                     {todo.title}
                     <button style={buttonStyle()} onClick={()=>delTodo(todo._id)}>x</button>

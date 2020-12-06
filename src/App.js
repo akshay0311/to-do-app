@@ -3,6 +3,7 @@ import axios from 'axios';
 import Todos from './components/todos';
 import Header from './components/header';
 import AddTodo from './components/addTodo';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   // state object
@@ -60,7 +61,7 @@ class App extends Component {
           {
           this.state.todos.length > 0 ?
           <Todos todos={this.state.todos} mark={this.mark} delTodo = {this.delTodo}/>
-          : <h1>Please add your today's todo</h1>
+          : <h1>Please add your today's</h1>
           }
       </>
     );
