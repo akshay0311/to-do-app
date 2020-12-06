@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-function TodoItem ({todo,markComplete,delTodo}){
+function TodoItem ({todo,mark,delTodo}){
     // arrow function for css styling
     var getStyle = ()=>{
         return {
@@ -25,7 +25,7 @@ function TodoItem ({todo,markComplete,delTodo}){
         return (
             <div style={getStyle()}>
                 <p style={{fontSize:"2em"}}>
-                    <input  type="checkbox" onChange={()=>markComplete(todo._id)}/>{'  '}
+                    <input  type="checkbox"  onChange={()=>mark(todo._id,!todo.completed)}/>{'  '}
                     {todo.title}
                     <button style={buttonStyle()} onClick={()=>delTodo(todo._id)}>x</button>
                 </p>

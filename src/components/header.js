@@ -50,14 +50,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchAppBar() {
+export default function SearchAppBar(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>  
-          <h1>TO-DO-APP</h1>
+          <h1 style={{fontSize:"3vw"}}>TO-DO-APP</h1>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -70,6 +70,7 @@ export default function SearchAppBar() {
               }}
             />
           </div>
+          <h3>{props.date}</h3>
         </Toolbar>
       </AppBar>
     </div>
