@@ -27,7 +27,7 @@ function TodoItem ({todo,mark,delTodo,index}){
             <div style={getStyle()}>
                 <p className="todo_items">
                     <input  type="checkbox"  onChange={()=>mark(todo._id,!todo.completed)}/>{'  '}
-                    {todo.title}
+                    <span>{todo.title}</span>
                     <button style={buttonStyle()} onClick={()=>delTodo(todo._id)}>x</button>
                 </p>
             </div>

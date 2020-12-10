@@ -7,7 +7,7 @@ function Todos(props) {
         // Passing down each item to TodoItem component
 
         props.todos.map((todo,index)=>{
-            return <TodoItem index={index} id= {todo._id} todo = {todo} mark ={props.mark} delTodo = {props.delTodo}/>
+            return <TodoItem index={index} key= {todo._id} todo = {todo} mark ={props.mark} delTodo = {props.delTodo}/>
         })
                 
     )

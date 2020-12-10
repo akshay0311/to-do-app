@@ -9,14 +9,13 @@ class App extends Component {
   // state object
   state = {
     todos : [],
-    date : String(new Date().getDate())+"."+String(new Date().getMonth())+"."+String(new Date().getFullYear())
+    date : String(new Date().getDate())+"."+String(new Date().getMonth()+1)+"."+String(new Date().getFullYear())
   }
 
   // LifeCycle Method which runs after render
   componentDidMount(){
       axios.get(`https://glimmer-near-practice.glitch.me/${this.state.date}`)
       .then(res=>{
-        console.log(res.data[0].todoItem)
         this.setState({todos:res.data[0].todoItem});
       })
       .catch(err=>console.log(err))
@@ -48,7 +47,12 @@ class App extends Component {
         title,
         completed:false
       })
-      .then((res)=>{console.log(res.data);this.setState({todos:[...this.state.todos,res.data]})})
+      .then((res)=>
+        {
+          let len = res.data.todoItem.length;
+          this.setState({todos:[...this.state.todos,res.data.todoItem[len-1]]
+        })
+      })
   }
 
   // render method
@@ -58,11 +62,7 @@ class App extends Component {
           <Header date={this.state.date}/>
           <br/>
           <AddTodo addTodo={this.addTodo}/>
-          {
-          this.state.todos.length > 0 ?
-          <Todos todos={this.state.todos} mark={this.mark} delTodo = {this.delTodo}/>
-          : <h1>Please add your today's</h1>
-          }
+          <Todos todos={this.state.todos} mark={this.mark} delTodo = {this.delTodo}/>  
       </>
     );
   }

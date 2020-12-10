@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Antic+Slab&display=swap');
 .todo_button {
     background-color:#54aed1;
     margin-left:5px;
@@ -5,6 +6,9 @@
 }
 .todo_items {
     font-size: 1.8em;
+}
+.todo_items > span {
+    font-family: 'Antic Slab', serif;
 }
 
 @media only screen and (max-width:700px) {
